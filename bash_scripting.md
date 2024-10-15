@@ -69,3 +69,9 @@ echo -e "${BLUE}kubectl${ENDCOLOR} get cm -n $namespace $configmap -o yaml"
 output=$(kubectl get cm -n $namespace $configmap -o yaml | grep -n $1 -A 2 -B 2)
 echo -e "${output//$1/${RED}$1${ENDCOLOR}}"
 ```
+
+## inline comments
+Used in some of my automatically generated melt-scripts (especially for video-files)
+```sh
+command `# comment` \
+```
