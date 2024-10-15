@@ -1,6 +1,6 @@
 # bash_scripting
 
-### looping
+## looping
 Looping constructs see https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html
 
 ```sh
@@ -14,7 +14,7 @@ done
 ```
 or directly something like `for filename in $(find $1); do # do something`
 
-### Params, conditions
+## Params, conditions
 Conditional constructs see https://www.gnu.org/software/bash/manual/html_node/Conditional-Constructs.html 
 
 ```sh
@@ -53,4 +53,19 @@ convert $i -geometry 1920x -crop 1920x1080+0+100 -quality 100 ${i%.*}-1080p.jpg;
 Rename all JPGs in current directory to filenames consisting of numbers:
 ```sh
 let a=0; for i in *.JPG; do let a=a+1; mv $i $a.jpg; done
+```
+
+## colors
+```sh
+#!/bin/bash
+
+BLUE="\e[34m"
+RED="\e[31m"
+ENDCOLOR="\e[0m"
+
+echo -e "${BLUE}kubectl${ENDCOLOR} get cm -n $namespace $configmap -o yaml"
+
+# $1 is a parameter to seach for which will be highlighted red
+output=$(kubectl get cm -n $namespace $configmap -o yaml | grep -n $1 -A 2 -B 2)
+echo -e "${output//$1/${RED}$1${ENDCOLOR}}"
 ```
