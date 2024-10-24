@@ -1,13 +1,14 @@
 !!! WIP !!!
 
 Example usage with input below:
-
+```sh
 bash ffmpeg.video.creator.sh                     # approx 20min
 sh ffmpeg.video.creator.test-audioonly.sh        # approx 20sec
 sh ffmpeg.video.creator.test-videoonly.sh        # approx 34min (threads = 2), max Memory 8.5 / 16GiB -> ok (starts very fast up to approx 8 GB, then very very slow (99% of encoding time)
                                                  # NOTE: Without separating audio and video (and merge manually) this totaly eats up my RAM the system freeze! this is a workaround!
+```
 example input:
-
+```sh
   # Note: those coversions have a "low" memory usage, so 1920x1080 would not freeze my pc
   ARRAY=()
   ARRAY+=($(to_mp4 $directory/$day1/ DSC_0533.NEF-1080p.jpg $1))
@@ -85,9 +86,9 @@ example input:
   ARRAY+=($(to_mp4 $directory/$day4/ DSC_0160.NEF-1080p.jpg $1))
   ARRAY+=($(to_mp4 $directory/$day4/ DSC_0184.NEF-1080p.jpg $1))
   ARRAY+=($(to_25fps $directory/$day4/ 00132_13.05.2015_im_nationalpark_twoSteps.mp4 $1))
-
+```
 Log:
-Full Log:
+```sh
 $ bash ffmpeg.video.creator.sh 
 Do 24. Okt 06:39:45 CEST 2024 Create video: src img (1920x1080) -> (5s, 25fps, 1920x1080, zoom to center) from DSC_0533.NEF-1080p.jpg...
 Do 24. Okt 06:39:45 CEST 2024 Create video: src img (1920x1080) -> (5s, 25fps, 1920x1080, zoom to center) from DSC_0431.NEF-1080p.jpg...
@@ -108,4 +109,5 @@ $ sh ffmpeg.video.creator.test-audioonly.sh
 Encoding took time from Do 24. Okt 07:03:39 CEST 2024 to Do 24. Okt 07:04:00 CEST 2024
 
 $ sh ffmpeg.video.creator.test-videoonly.sh
-Encoding took time from Do 24. Okt 07:04:34 CEST 2024 to Do 24. Okt 07:37:57 CEST 2024
+Encoding took time from Do 24. Okt 07:04:34 CEST 2024 to Do 24. Okt 07:37:57 CEST 202
+```
