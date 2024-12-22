@@ -7,3 +7,4 @@ Order directories based on size
 Find files containg a token
 
 > find -iname "*.java" | xargs grep -iR token
+> find . -not -path '*/.*' -type f | xargs grep -A 2 -B 2 --color -Hn "token"
